@@ -7,7 +7,7 @@ package intentoimportacion;
 
 /**
  *
- * @author gi.lino
+ * @author gisela.lino
  */
 public class IntentoImportacion {
 
