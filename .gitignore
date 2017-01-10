@@ -15,3 +15,7 @@ hs_err_pid*
 /IntentoImportacion/dist/
 /01-Java/build/
 /01-Java/dist/
+/02-Paquetes/nbproject/private/
+/02-Paquetes/build/
+/02-Paquetes/dist/
+/03-TiposDeDatos/nbproject/private/
