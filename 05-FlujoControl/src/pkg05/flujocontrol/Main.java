@@ -19,6 +19,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner s = new Scanner(System.in);
+        int arregloEnteros[];
         OperacionesArreglo arregloOp = new OperacionesArreglo();
         
         int opcion;
@@ -26,22 +27,24 @@ public class Main {
         do{
         System.out.println("Captura la opción a ejecutar: 0. Captura de nombres, 1.Suma del arreglo, 2. Calcular Media, 3. Número mayor en arreglo, 5. Salir ");
         opcion= s.nextInt();
-        
         switch (opcion){
             case 0:{
                 capturaNombres();
             }
             break;
             case 1:{
-                System.out.println(arregloOp.sumaArreglo(llenaArreglo(creaArreglo())));
+                arregloEnteros = llenaArreglo(creaArreglo());
+                System.out.println("La suma es: "+arregloOp.sumaArreglo(arregloEnteros));
              }
             break;
             case 2:{
-                System.out.println(arregloOp.mediaArreglo(llenaArreglo(creaArreglo())));
+                arregloEnteros = llenaArreglo(creaArreglo());
+                System.out.println("La media es: "+arregloOp.mediaArreglo(arregloEnteros));
              }
             break;
             case 3:{
-                System.out.println(arregloOp.mayorArreglo(llenaArreglo(creaArreglo())));
+                arregloEnteros = llenaArreglo(creaArreglo());
+                System.out.println("El número mayor es: "+arregloOp.mayorArreglo(arregloEnteros));
             }
             break;
 
