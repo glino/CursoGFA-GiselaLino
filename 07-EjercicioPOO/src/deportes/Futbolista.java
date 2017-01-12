@@ -11,9 +11,10 @@ import persona.Persona;
  *
  * @author gi.lino
  */
-public class Futbolista extends Persona{
+public class Futbolista extends Persona implements Deporte{
     private String posicion;
     private int dorsal;
+
     public Futbolista(String nombre, String apellido, int edad, String posicion, int dorsal) {
         super(nombre, apellido, edad);
         this.posicion = posicion;
@@ -47,5 +48,25 @@ public class Futbolista extends Persona{
     @Override
     public void comer(){
         System.out.println("¿Qué es eso?...");
+    }
+    
+    @Override
+    public String toString(){
+        return "Nombre: ";
+    }
+    
+    @Override 
+    public void jugar(){
+        System.out.println("Juega un partido");
+    }
+    
+    @Override
+    public void viajar(){
+        System.out.println("Viaja al estadio");
+    }
+
+    @Override
+    public void entranar() {
+  
     }
 }

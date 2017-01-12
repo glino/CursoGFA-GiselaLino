@@ -6,6 +6,8 @@
 package pkg07.ejerciciopoo;
 import persona.Persona;
 import deportes.Futbolista;
+import oficina.Desarrollador;
+import oficina.Operador;
 
 /**
  *
@@ -22,6 +24,16 @@ public class Main {
         
         Futbolista fut = new Futbolista("Fabian", "Onate", 27, "Defensa", 22);
         fut.hablar();
+        System.out.println(fut.toString());
+        
+        Desarrollador des = new Desarrollador("Jose", "Lopez", 12, 34, 123);
+        
+        Operador ope = new Operador("Armando", "Montes", 12, 34, 123);
+        
+        System.out.println("Primero ");
+        des.trabajar();
+        System.out.println("Y despues ");
+        des.transporteTorta();
        /* p.setEdad(35);
         Persona p2 = new Persona ("José", "Perez", 32);
         
