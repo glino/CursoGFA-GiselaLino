@@ -17,6 +17,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //escribir();
+        leer();
+        
+    }
+    
+    static void escribir(){
         Scanner s = new Scanner(System.in);
         Scanner s2 = new Scanner(System.in);
         System.out.println("Ingresa el Código de Error");
@@ -25,6 +31,16 @@ public class Main {
         String descripcion = s2.nextLine();
         Error e1 = new Error (cError, descripcion);
         e1.escribir("errores.txt");
+        
     }
     
+    
+    static void leer(){
+        Scanner s = new Scanner(System.in);
+        Scanner s2 = new Scanner(System.in);
+  
+        Escribible e = new Error();
+        e.leer("errores.txt", 1484410163270L );
+        System.out.println(e.toString());
+    }
 }

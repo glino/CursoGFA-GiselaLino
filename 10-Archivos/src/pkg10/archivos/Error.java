@@ -5,9 +5,11 @@
  */
 package pkg10.archivos;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -24,6 +26,9 @@ public class Error implements Escribible{
     private int codigoError;
     private String descripcion;
 
+    public Error(){
+    }
+    
     public Error(int codigoError, String descripcion) {
         this.timeStamp = new Date().getTime();
         this.codigoError = codigoError;
@@ -95,10 +100,35 @@ public class Error implements Escribible{
 
     @Override
     public Escribible leer(String url, long timeStamp) {
- 
-       return new Error (3, "Error para");
+        try{
+            FileReader fR= new FileReader(url);
+            BufferedReader bR = new BufferedReader(fR);
+            String linea;
+            while((linea = bR.readLine())!=null){
+                String [] sl = linea.split("-");
+                if(Long.parseLong(sl[0].trim())==timeStamp){
+                    this.timeStamp = timeStamp;
+                    this.codigoError = Integer.parseInt(sl[1].trim());
+                    this.descripcion = sl[2].trim();
+                    return this;
+                }
+            }
+        }catch (FileNotFoundException ex){
+            System.out.println("Archivo no encontrado");
+        }catch (IOException ex){
+            System.out.println("Error IO");
+        }
+        
+        
+        
+       return null;
     }
     
     
+    @Override
+    public String toString(){
+        return this.timeStamp +" | " +this.codigoError+" | " +this.descripcion;
+       
+    }
     
 }
