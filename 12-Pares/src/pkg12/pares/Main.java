@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author gi.lino
  */
-public class Pares {
+public class Main {
 
     /**
      * @param args the command line arguments
@@ -23,6 +23,7 @@ public class Pares {
             int j=0;
             for(int i = 0; i<arreglo.length; i++){
                 if (arreglo[i]%2==0){
+                    System.out.println("*"+arreglo[i]);
                     arreglo2[j]= arreglo[i];
                     j++;
                 }
@@ -34,6 +35,7 @@ public class Pares {
             int j=0;
             for(int i = 0; i<arreglo.length; i++){
                 if (arreglo[i]%2!=0){
+                    System.out.println("*"+arreglo[i]);
                     arreglo2[j]= arreglo[i];
                     j++;
                 }
@@ -47,11 +49,13 @@ public class Pares {
         longitud = s.nextInt();
         float []arregloEntrada = new float [longitud];
         for(int i=0; i<longitud; i++){
-            System.out.print("Numero "+i);
+            System.out.print("Numero "+i+" ");
             arregloEntrada[i]= s.nextFloat();
         }
 
+        System.out.print("Pares:\n");
         arregloPar.obtenerArreglo(arregloEntrada);
+        System.out.print("Impares:\n");
         arregloImpar.obtenerArreglo(arregloEntrada);
         
         
