@@ -11,6 +11,7 @@ import vehiculo.tiposvehiculos.Avion;
 import vehiculo.tiposvehiculos.Barco;
 import vehiculo.tiposvehiculos.Bicicleta;
 import java.io.IOException;
+import vehiculo.Vehiculo;
 
 /**
  *
@@ -21,12 +22,12 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    static Object [] arreglo;
+    static Vehiculo [] arreglo;
     static int punteroArreglo;
     static Scanner s = new Scanner(System.in);
     
     public static void main(String[] args) {
-        arreglo = new Object [10];
+        arreglo = new Vehiculo [10];
         punteroArreglo = 0;
 
         int opcion;
@@ -55,30 +56,26 @@ public class Main {
     
     
     private static void registrar(){
-        System.out.println("Registrar: \n1) Bicicleta \n2)Avion \n3)Automovil \n4)Barco");
+        System.out.println("Registrar: \n1)Bicicleta \n2)Avion \n3)Automovil \n4)Barco");
         int opcion= s.nextInt();
+        Vehiculo vehi= null;
          switch(opcion){
                 case 1:
-                    Bicicleta bici = new Bicicleta(0,0,"");
-                    bici.registrar(punteroArreglo);
-                    arreglo [punteroArreglo] = bici;
+                    vehi = new Bicicleta(0,0,"");
                 break;    
                 case 2:
-                    Avion avi = new Avion(0,0,"","","");
-                    avi.registrarTransportePublico(punteroArreglo);
-                    arreglo [punteroArreglo] = avi;
+                    vehi = new Avion(0,0,"","","");
                 break;
                 case 3:
-                    Automovil auto = new Automovil(0,0,"");
-                    auto.registrar(punteroArreglo);
-                    arreglo [punteroArreglo] = auto;
+                    vehi = new Automovil(0,0,"");
                 break;
                 case 4:
-                    Barco bar = new Barco(0,0,"","","");
-                    bar.registrarTransportePublico(punteroArreglo);
-                    arreglo [punteroArreglo] = bar;
+                    vehi = new Barco(0,0,"","","");
                 break;
             }
+                         System.out.println("tt "+vehi.getClass().getName()); ;
+        vehi.registrar(punteroArreglo);
+        arreglo [punteroArreglo] = vehi; 
         punteroArreglo ++;
         
     }
@@ -109,7 +106,7 @@ public class Main {
         for (int i = 0; i<arreglo.length; i++)
         {
             try{
-            System.out.println(arreglo[i].toString());
+                System.out.println(arreglo[i].toString());
             }catch (NullPointerException ex){}
         } 
     }

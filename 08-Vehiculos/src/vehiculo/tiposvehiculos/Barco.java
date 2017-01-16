@@ -21,8 +21,16 @@ public class Barco extends TransportePublico {
 
     @Override
     public void registrarTransportePublico( int idVehiculo) {
+    }
+
+    @Override
+    public void registrar( int idVehiculo) {    
         Scanner s = new Scanner(System.in);
-        registrar(idVehiculo);
+        setIdVehiculo (idVehiculo);
+        System.out.println("Cantidad Ruedas");
+        setCantidadRuedas (s.nextInt());
+        System.out.println("TipoVehiculo");
+        setTipoVehiculo (s.next());
         System.out.println("Origen");
         setOrigen(s.next());
         System.out.println("Destino");

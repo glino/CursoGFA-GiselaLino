@@ -28,7 +28,7 @@ public class Automovil extends Vehiculo {
     
     @Override
     public String toString(){
-        return "Vehiculo: "+getIdVehiculo()+", Cantidad Ruedas: "+getCantidadRuedas()+" TipoVehiculo: "+getTipoVehiculo () ;
+        return "Automovil\nVehiculo: "+getIdVehiculo()+", Cantidad Ruedas: "+getCantidadRuedas()+" TipoVehiculo: "+getTipoVehiculo () ;
     }
   
     
