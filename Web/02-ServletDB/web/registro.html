@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registro Autobus</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>Un mensaje cualquiera</p>
+        <form method="post" action="/02-ServletDB/autobuses">
+        
+            <label for="num_autobus">Número de Autobus</label>
+            <input id="num_autobus" name="num_autobus" type="number">
+            <br>
+            <br>
+            <label for="siglas">Siglas</label>
+            <input id="siglas" name="siglas" type="text" maxlength="3">
+            <br>
+            <br>
+            <label for="modelo">Modelo</label>
+            <input id="modelo" name="modelo" type="number" min="1990" max="2017">
+            <br>
+            <br>
+            <label for="capacidad">Capacidad</label>
+            <input id="capacidad" name="capacidad" type="number" min="10" max="40">
+            <br>
+            <br>
+            <label for="base">Base: </label>    
+            <select name ="base" id ="base">
+                <option value="leon">LEON</option>
+                <option value="guadalajara">GUADALAJARA</option>
+                <option value="silao">SILAO</option>
+                <option value="guanajuato">GUANAJUATO</option>
+                <option value="celaya">CELAYA</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit">Insertar</button>
+         </form>   
+    </body>
+</html>

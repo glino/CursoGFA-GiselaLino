@@ -61,4 +61,19 @@ public class AutobusDB {
         conexion.close();
         return lista;
     }
+    
+    
+    public int registrarAutobus(Autobus autobus) throws ClassNotFoundException, SQLException {
+        Class.forName(JDBC_DRIVER);
+        Connection conexion = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement consulta = conexion.createStatement();
+        String query = String.format ("INSERT INTO autobus (num_autobus,siglas,modelo,capacidad,base) values ('%d','%s','%d','%d','%s')",
+                        autobus.getNum_Autobus(), autobus.getSiglas(), autobus.getModelo(),autobus.getCapacidad(),autobus.getBase());
+    
+        int resultado = consulta.executeUpdate(query);
+        
+        consulta.close();
+        conexion.close();
+        return resultado;
+    }
 }

@@ -17,7 +17,7 @@ public class Autobus {
     private int capacidad;
     private String base;
 
-    public void setNum_Autobus(int numAutobus) {
+    public void setNum_Autobus(int num_Autobus) {
         this.num_Autobus = num_Autobus;
     }
 
