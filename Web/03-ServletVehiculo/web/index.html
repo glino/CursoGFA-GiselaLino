@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       
+        
+        <form method="post" action="/Automovil">
+            <label for="vehiculo">Tipo Vehiculo</label>
+            <select name ="vehiculo" id ="vehiculo">
+                <option value="bicicleta">Bicicleta</option>
+                <option value="automovil">Automovil</option>
+                <option value="avion">Avion</option>
+                <option value="barco">Barco</option>
+            </select>
+           
+            <br>
+            <br>
+            <label for="idVehiculo">ID</label>
+            <input id="idVehiculo" name="idVehiculo" type="number">
+            <br>
+            <br>
+            <label for="cantidadRuedas">Cantidad Ruedas</label>
+            <input id="cantidadRuedas" name="cantidadRuedas" type="text" maxlength="3">
+            <br>
+            <br>
+            <label for="tipoVehiculo">Tipo Vehiculo</label>
+            <input id="tipoVehiculo" name="tipoVehiculo" type="text" >
+            <br>
+            <br>
+            <label for="origen">Origen</label>
+            <select name ="origen" id ="origen">
+                <option value="leon">León</option>
+                <option value="mexico">México</option>
+                <option value="ptovallarta">Puerto Vallarta</option>
+                <option value="guadalajara">Guadalajara</option>
+            </select>
+            <label for="destino">Destino</label>
+            <select name ="destino" id ="destino">
+                <option value="leon">León</option>
+                <option value="mexico">México</option>
+                <option value="ptovallarta">Puerto Vallarta</option>
+                <option value="guadalajara">Guadalajara</option>
+            </select>
+            <br>
+            <br>
+            
+            
+            <button type="submit">Insertar</button>
+         </form>   
+    </body>
+</html>
