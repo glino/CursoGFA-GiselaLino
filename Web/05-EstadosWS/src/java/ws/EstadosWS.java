@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package wsholamundo;
+package ws;
 
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import javax.jws.WebService;
+import modelo.Estado;
 
 /**
  *
  * @author gi.lino
  */
 @WebService
-public class HolaMundoImpl implements HolaMundo {
-
+public interface EstadosWS {
     @WebMethod
-    public String getHolaMundo(@WebParam(name = "nombre") String s) {
-        return "Hola "+s;
-    }
-    
+    public String getCapital(String s);
+    @WebMethod
+    public int getPoblacion(String s);
+    @WebMethod
+    public Estado[] getEstados();
 }
