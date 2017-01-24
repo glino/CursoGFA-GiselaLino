@@ -5,6 +5,7 @@
  */
 package negocio;
 
+import db.VehiculoDB;
 import db.tiposvehiculos.AutomovilDB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,14 +18,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.vehiculo.tiposvehiculos.Automovil;
+import model.vehiculo.Vehiculo;
+import model.vehiculo.tiposvehiculos.*;
 
 /**
  *
  * @author gi.lino
  */
 @WebServlet(name = "Automovil", urlPatterns = {"/Automovil"})
-public class SevletAutomovil extends HttpServlet {
+public class SevletVehiculo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -70,11 +72,11 @@ public class SevletAutomovil extends HttpServlet {
             AutomovilDB aDB = new  AutomovilDB();
             PrintWriter pw = response.getWriter();
         try {
-            pw.print(aDB.consultar(1).toString()+"<br>");
+            pw.print(aDB.consultar(12).toString());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SevletAutomovil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SevletVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SevletAutomovil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SevletVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -98,18 +100,48 @@ public class SevletAutomovil extends HttpServlet {
             pw.print(aDB.consultar(0).toString()+"<br>");*/
             
             request.setCharacterEncoding("UTF-8");
-            Automovil auto = new Automovil(0,0,"");
-            auto.setIdVehiculo(Integer.parseInt(request.getParameter("idVehiculo")));
-            auto.setCantidadRuedas(Integer.parseInt(request.getParameter("cantidadRuedas")));
-            auto.setTipoVehiculo(request.getParameter("tipoVehiculo"));
-            AutomovilDB aDB1 = new  AutomovilDB();
-        try {
-            if(aDB1.registrar(auto))
+            Vehiculo vehi = null;
+            VehiculoDB aDB1 = null;
+            
+            String categoriaVehi = request.getParameter("vehiculo");
+            switch(categoriaVehi){
+                case "bicicleta":
+                    vehi = new Bicicleta(0,0,"");
+                    aDB1 = new AutomovilDB();
+                break;
+                case "automovil":
+                    vehi = new Automovil(0,0,"");
+                    aDB1 = new  AutomovilDB();
+                break;
+                case "avion":
+                    Avion avi=new Avion(0, 0, "", "", "");
+                    avi.setDestino(request.getParameter("destino"));
+                    avi.setOrigen(request.getParameter("origen"));
+                    vehi = avi;
+                    aDB1 = new  AutomovilDB();
+                break;
+                case "barco":
+                    Barco bar=new Barco(0, 0, "", "", "");
+                    bar.setDestino(request.getParameter("destino"));
+                    bar.setOrigen(request.getParameter("origen"));
+                    vehi = bar;
+                    aDB1 = new  AutomovilDB();
+                break;
+            }
+             
+            vehi.setIdVehiculo(Integer.parseInt(request.getParameter("idVehiculo")));
+            vehi.setCantidadRuedas(Integer.parseInt(request.getParameter("cantidadRuedas")));
+            vehi.setTipoVehiculo(request.getParameter("tipoVehiculo"));
+
+        try {    
+            
+            if(aDB1.registrar(vehi))
                 response.sendRedirect("success.html");
+            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(SevletAutomovil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SevletVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(SevletAutomovil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SevletVehiculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
             

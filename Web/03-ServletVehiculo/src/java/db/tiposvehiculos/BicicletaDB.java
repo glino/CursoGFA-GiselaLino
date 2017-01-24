@@ -17,19 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.vehiculo.tiposvehiculos.Automovil;
+import model.vehiculo.tiposvehiculos.Bicicleta;
 
 /**
  *
  * @author gi.lino
  */
-public class AutomovilDB implements VehiculoDB{
+public class BicicletaDB implements VehiculoDB{
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/gfajava";
     private static final String USER = "root";
     private static final String PASS = "";
-                
-    
    
     
     @Override
@@ -37,7 +35,7 @@ public class AutomovilDB implements VehiculoDB{
             Class.forName(JDBC_DRIVER);
             Connection conexion = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement consulta = conexion.createStatement();
-            Automovil auto= (Automovil) vehiculo;
+            Bicicleta bici = (Bicicleta) vehiculo;
 
             String query = String.format ("INSERT INTO automovil (id,cantidadruedas,tipovehiculo) values ('%d','%d','%s')",
                         auto.getIdVehiculo(),auto.getCantidadRuedas(),auto.getTipoVehiculo());

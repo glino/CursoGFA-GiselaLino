@@ -13,7 +13,7 @@ import model.vehiculo.Vehiculo;
  *
  * @author gi.lino
  */
-public interface DB {
+public interface VehiculoDB {
  
 
     public abstract boolean registrar(Vehiculo vehi) throws ClassNotFoundException, SQLException ;

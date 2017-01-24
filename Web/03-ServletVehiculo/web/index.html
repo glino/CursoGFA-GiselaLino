@@ -10,6 +10,8 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
     <body>
        
         
@@ -36,8 +38,8 @@ and open the template in the editor.
             <input id="tipoVehiculo" name="tipoVehiculo" type="text" >
             <br>
             <br>
-            <label for="origen">Origen</label>
-            <select name ="origen" id ="origen">
+            <label for="origen" hidden="true">Origen</label>
+            <select name ="origen" id ="origen" hidden="false">
                 <option value="leon">León</option>
                 <option value="mexico">México</option>
                 <option value="ptovallarta">Puerto Vallarta</option>
