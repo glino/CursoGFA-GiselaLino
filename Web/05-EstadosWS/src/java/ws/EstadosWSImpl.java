@@ -9,9 +9,7 @@ import db.EstadoDB;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
+import javax.jws.*;
 import modelo.Estado;
 
 /**
@@ -54,6 +52,7 @@ public class EstadosWSImpl implements EstadosWS{
     
     @Override
     @WebMethod
+    @WebResult (name = "estado")
     public Estado[]getEstados() {
         try {   
             Estado[] estados;
