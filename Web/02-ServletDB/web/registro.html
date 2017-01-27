@@ -9,6 +9,21 @@ and open the template in the editor.
         <title>Registro Autobus</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script>
+            $(function (){
+                $("#registro").on("click", function(){
+                    $.ajax({
+                        url:'ServletEjemplo',
+                        method:'post',
+                        success:function (response){
+                            $("#mensaje").html(response);
+                        }
+                    });
+                });
+            });
+        </script>
+        
     </head>
     <body>
         <p>Un mensaje cualquiera</p>
@@ -42,5 +57,8 @@ and open the template in the editor.
             <br>
             <button type="submit">Insertar</button>
          </form>   
+        
+        <button id = "registro">Registrar (Ejemplo)</button>
+        <p id="mensaje"></p>
     </body>
 </html>
