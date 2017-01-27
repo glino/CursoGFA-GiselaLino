@@ -16,7 +16,7 @@ public class Barco extends TransportePublico {
 
     public Barco(int idVehiculo, int cantidadRuedas, String tipoVehiculo, 
             String origen, String destino) {
-        super(idVehiculo, cantidadRuedas, tipoVehiculo, origen, destino);
+            super(idVehiculo, cantidadRuedas, tipoVehiculo, origen, destino);
     }
 
     @Override

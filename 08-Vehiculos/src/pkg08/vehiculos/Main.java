@@ -73,7 +73,7 @@ public class Main {
                     vehi = new Barco(0,0,"","","");
                 break;
             }
-                         System.out.println("tt "+vehi.getClass().getName()); ;
+                         System.out.println("tt "+vehi.getClass().getName()); 
         vehi.registrar(punteroArreglo);
         arreglo [punteroArreglo] = vehi; 
         punteroArreglo ++;
