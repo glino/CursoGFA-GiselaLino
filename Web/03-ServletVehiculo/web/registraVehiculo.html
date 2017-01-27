@@ -8,64 +8,137 @@ and open the template in the editor.
 
 <html>
     <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
         <title>Registro Automovil</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jQuery/jquery-3.1.1.js"></script>
+        <script src="jQuery/jquery-3.1.1.js"></script>
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"  >
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"  ></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9 col-md-offset-1">    
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <div class="formgroup">
+                                <label for="vehiculo">Tipo Vehiculo</label><br>
+                                <select name ="vehiculoCon" id ="vehiculoCon"  class="form-control elemento-formulario">
+                                    <option value="bicicleta" >Bicicleta</option>
+                                    <option value="automovil" >Automovil</option>
+                                    <option value="avion" class="publico">Avion</option>
+                                    <option value="barco" class="publico">Barco</option>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            <div class="formgroup">
+                                <label for="idVehiculo">ID</label><br>
+                                    <input id="idVehiculo" name="idVehiculo" type="number" class="form-control elemento-formulario">
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col-md-4 col-md-offset-1">
+                        <br>
+                        <button id="btnConsultar" class="btn btn-primary">Consultar</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <br>
+            <div class="row">
+                <div class="col-md-9 col-md-offset-1">    
+                    <form method="post" action="/Automovil">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1"> 
+                                <div class="formgroup">
+                                    <label for="vehiculo">Tipo Vehiculo</label><br>
+                                    <select name ="vehiculo" id ="vehiculo" onchange="ocultar()" class="form-control elemento-formulario">
+                                        <option value="bicicleta" >Bicicleta</option>
+                                        <option value="automovil" >Automovil</option>
+                                        <option value="avion" class="publico">Avion</option>
+                                        <option value="barco" class="publico">Barco</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">   
+                            <div class="col-md-4 col-md-offset-1">    
+                                <div class="formgroup">
+                                    <label for="idVehiculo">ID</label><br>
+                                    <input id="idVehiculo" name="idVehiculo" type="number" class="form-control elemento-formulario">
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1">    
+                                <div class="formgroup">
+                                    <label for="cantidadRuedas">Cantidad Ruedas</label><br>
+                                    <input id="cantidadRuedas" name="cantidadRuedas" type="text" maxlength="3" class="form-control elemento-formulario">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">     
+                            <div class="col-md-4 col-md-offset-1">   
+                               <div class="formgroup">
+                                    <label for="tipoVehiculo">Tipo Vehiculo</label><br>
+                                    <input id="tipoVehiculo" name="tipoVehiculo" type="text" class="form-control elemento-formulario">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-1">  
+                                <div class="formgroup">
+                                    <label for="origen" class="origenes">Origen</label><br>
+                                        <select name ="origen" id ="origen" class="form-control elemento-formulario">
+                                            <option value="leon">León</option>
+                                            <option value="mexico">México</option>
+                                            <option value="ptovallarta">Puerto Vallarta</option>
+                                            <option value="guadalajara">Guadalajara</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1">    
+                        <div class="formgroup">
+                            <label for="destino" class="destinos">Destino</label><br>
+                                <select name ="destino" id ="destino" class="form-control elemento-formulario">
+                                    <option value="leon">León</option>
+                                    <option value="mexico">México</option>
+                                    <option value="ptovallarta">Puerto Vallarta</option>
+                                    <option value="guadalajara">Guadalajara</option>
+                                </select>
+                        </div>
+                    </div>                
+                </div>
+
+                        <div class="col-md-4 col-md-offset-1">
+                             <br>
+                        <button type="submit" class="btn btn-primary">Insertar</button>
+                        </div>
+                     </form>  
+                </div>
+            </div>
+        </div>
+        
         <script >
-      
+            
+
         function ocultar(){
-            if(vehiculo.class == "publico"){
-                    destino.style = "display:none";
+            
+            if(vehiculo.value === "bicicleta" || vehiculo.value === "automovil"){
+                    destino.style="display:none";
+                    origen.style = "display:none";
                 }
                 else {
                     destino.style="display:inline";
+                    origen.style = "display:inline";
                 }
         }         
         </script>
-    </head>
-    <body>
- <form method="post" action="/Automovil">
-            <label for="vehiculo">Tipo Vehiculo</label>
-            <select name ="vehiculo" id ="vehiculo" onchange="ocultar()">
-                <option value="bicicleta" >Bicicleta</option>
-                <option value="automovil" >Automovil</option>
-                <option value="avion" class="publico">Avion</option>
-                <option value="barco" class="publico">Barco</option>
-            </select>
-           
-            <br>
-            <br>
-            <label for="idVehiculo">ID</label>
-            <input id="idVehiculo" name="idVehiculo" type="number">
-            <br>
-            <br>
-            <label for="cantidadRuedas">Cantidad Ruedas</label>
-            <input id="cantidadRuedas" name="cantidadRuedas" type="text" maxlength="3">
-            <br>
-            <br>
-            <label for="tipoVehiculo">Tipo Vehiculo</label>
-            <input id="tipoVehiculo" name="tipoVehiculo" type="text" >
-            <br>
-            <br>
-            <label for="origen" class="origen">Origen</label>
-            <select name ="origen" id ="origen" class="origen">
-                <option value="leon">León</option>
-                <option value="mexico">México</option>
-                <option value="ptovallarta">Puerto Vallarta</option>
-                <option value="guadalajara">Guadalajara</option>
-            </select>
-            <label for="destino" class="destino">Destino</label>
-            <select name ="destino" id ="destino" class="destino">
-                <option value="leon">León</option>
-                <option value="mexico">México</option>
-                <option value="ptovallarta">Puerto Vallarta</option>
-                <option value="guadalajara">Guadalajara</option>
-            </select>
-            <br>
-            <br>
-            
-            
-            <button type="submit">Insertar</button>
-         </form>  
     </body>
+            
 </html>

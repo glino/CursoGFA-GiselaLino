@@ -37,8 +37,8 @@ public class BicicletaDB implements VehiculoDB{
             Statement consulta = conexion.createStatement();
             Bicicleta bici = (Bicicleta) vehiculo;
 
-            String query = String.format ("INSERT INTO automovil (id,cantidadruedas,tipovehiculo) values ('%d','%d','%s')",
-                        auto.getIdVehiculo(),auto.getCantidadRuedas(),auto.getTipoVehiculo());
+            String query = String.format ("INSERT INTO bicicleta (id,cantidadruedas,tipovehiculo) values ('%d','%d','%s')",
+                        bici.getIdVehiculo(),bici.getCantidadRuedas(),bici.getTipoVehiculo());
     
             boolean resultado = consulta.execute(query);
         
@@ -54,11 +54,11 @@ public class BicicletaDB implements VehiculoDB{
 
             Class.forName(JDBC_DRIVER);
             Connection conexion = DriverManager.getConnection(DB_URL, USER, PASS);
-            Automovil auto= (Automovil) vehiculo;
+            Bicicleta bici = (Bicicleta) vehiculo;
             Statement consulta = conexion.createStatement();
 
-            String query = String.format ("UPDATE automovil SET tipoVehiculo='%s' where id='%d'",
-                        auto.getTipoVehiculo(),auto.getIdVehiculo());
+            String query = String.format ("UPDATE bicicleta SET tipoVehiculo='%s' where id='%d'",
+                        bici.getTipoVehiculo(),bici.getIdVehiculo());
     
             boolean resultado = consulta.execute(query);
         
@@ -76,21 +76,21 @@ public class BicicletaDB implements VehiculoDB{
             conexion = DriverManager.getConnection(DB_URL, USER, PASS);
 
             Statement consulta = conexion.createStatement();//nos permite hacer consultas
-            String textConsulta = "SELECT * FROM automovil where id =" +id;
+            String textConsulta = "SELECT * FROM bicicleta where id =" +id;
             ResultSet resultado = consulta.executeQuery(textConsulta); //capta todos los resultados de nuestra consulta
         
 
-            Automovil auto= new Automovil(0,0,"");
+            Bicicleta bici = new Bicicleta(0,0,"");
             if(resultado.next()){
-                auto.setIdVehiculo(resultado.getInt("id"));
-                auto.setCantidadRuedas(resultado.getInt("cantidadRuedas"));
-                auto.setTipoVehiculo(resultado.getString("tipoVehiculo"));
+                bici.setIdVehiculo(resultado.getInt("id"));
+                bici.setCantidadRuedas(resultado.getInt("cantidadRuedas"));
+                bici.setTipoVehiculo(resultado.getString("tipoVehiculo"));
             }
         
             resultado.close();
             conexion.close();
         
-            return auto;
+            return bici;
  
 
     }
@@ -102,7 +102,7 @@ public class BicicletaDB implements VehiculoDB{
             Connection conexion = DriverManager.getConnection(DB_URL, USER, PASS);
             Statement consulta = conexion.createStatement();
 
-            String query = String.format ("DELETE FROM automovil where id='%d'",
+            String query = String.format ("DELETE FROM bicicleta where id='%d'",
                         id);
     
             boolean resultado = consulta.execute(query);
