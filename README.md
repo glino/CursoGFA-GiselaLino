@@ -1,2 +1,0 @@
-# CursoGFA-GiselaLino
-Curso Java
